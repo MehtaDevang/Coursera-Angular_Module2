@@ -57,12 +57,7 @@
         quantity: "500 gm"
       }
     ];
-    var alreadyBought = [
-      // {
-      //   name: "litchi",
-      //   quantity: "1 kg"
-      // }
-    ];
+    var alreadyBought = [];
 
     service.toBuyItems = function () {
       return toBuy;
@@ -73,9 +68,7 @@
     };
 
     service.updateLists = function (index) {
-      console.log("I am in : " + index);
       var item = toBuy[index];
-      console.log("removed item is: " + item);
       toBuy.splice(index, 1);
       alreadyBought.push(item);
     };
