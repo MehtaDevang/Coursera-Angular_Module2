@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <title>Shopping List</title>
+  </head>
+  <body ng-app="ShoppingListCheckOff">
+    <h2>Items to buy list</h2>
+    <div ng-controller="ToBuyController as ctrl1">
+      <div>
+        <table
+          style="border: 1px solid black; margin-left: 10px; padding: 2px;"
+        >
+          <tr ng-repeat="item in ctrl1.items" style="border: 1px solid grey;">
+            <td>Buy {{item.quantity}} {{item.name}}</td>
+            <td>
+              <button ng-click="ctrl1.itemBought($index)">
+                Bought
+              </button>
+            </td>
+          </tr>
+        </table>
+        <!-- <ol>
+          <li ng-repeat="item in ctrl1.items">
+            Buy {{item.quantity}} {{item.name}}
+            <button ng-click="ctrl1.itemBought($index)">
+              Bought
+            </button>
+          </li>
+        </ol> -->
+      </div>
+      <div ng-if="ctrl1.items.length == 0">
+        <p>{{ctrl1.message}}</p>
+      </div>
+    </div>
+
+    <h2>Items already bought list</h2>
+    <div ng-controller="AlreadyBoughtController as ctrl2">
+      <div>
+        <table style="margin-left: 10px;">
+          <tr ng-repeat="item in ctrl2.items" style="border: 1px solid grey;">
+            <td>Bought {{item.quantity}} {{item.name}}</td>
+          </tr>
+        </table>
+
+        <!-- <ol>
+          <li ng-repeat="item in ctrl2.items">
+            Bought {{item.quantity}} {{item.name}}
+          </li>
+        </ol> -->
+      </div>
+      <div>
+        <p ng-if="ctrl2.items.length == 0">{{ctrl2.message}}</p>
+      </div>
+    </div>
+  </body>
+
+  <script src="node_modules/angular"></script>
+  <script src="node_modules/angular-route"></script>
+  <script src="node_modules/angular-ui-router"></script>
+  <script src="node_modules/jquery-ui"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="node_modules/angular-bootstrap"></script>
+  <script src="node_modules/angular-smart-table"></script>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</html>
